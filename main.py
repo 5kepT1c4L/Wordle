@@ -1,7 +1,12 @@
 from wordselection import word_bank
 from tkinter import *
 from tkinter import messagebox
+from pygame import mixer
 import random
+
+
+
+
 
 
 ###Variables for GUI/game
@@ -20,6 +25,11 @@ root.title("Wordle")
 
 
 ###main
+def play_song():
+    mixer.init()
+    mixer.music.load("Jeopardy_Music.wav")
+    mixer.music.play()
+
 def clear_text():
    userWordInput.delete(0, END)
 
@@ -35,6 +45,8 @@ def getGuess():
     attempts += 1
 
     guess = userWordInput.get()
+
+    play_song()
 
     if attempts <= 5:
 
