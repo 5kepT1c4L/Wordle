@@ -1,3 +1,14 @@
+# Setup directions
+
+1. Download code zip file
+
+2. Extract files from the zip file
+
+3. Open files in IDE and run main.py file
+
+
+
+
 # How to play Wordle
 
 1. You have six tries to guess the five-letter Wordle of the day.
