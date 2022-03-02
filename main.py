@@ -1,4 +1,3 @@
-
 from wordselection import word_bank
 from tkinter import *
 from tkinter import messagebox
@@ -15,19 +14,26 @@ attempts = 1
 
 ###GUI setup
 root = Tk()
-
+root.config(bg=BLACK)
+root.title("Wordle")
 
 
 
 ###main
+def clear_text():
+   userWordInput.delete(0, END)
+
 userWordInput = Entry(root)
 userWordInput.grid(row=999, column=0, columnspan=3, padx=15, pady=15)
 
 def getGuess():
 
     global word_chosen
+
     global attempts
+
     attempts += 1
+
     guess = userWordInput.get()
 
     if attempts <= 5:
@@ -36,24 +42,44 @@ def getGuess():
 
             if guess == word_chosen:
 
+                for letter in enumerate(list(guess)):
+
+                    label = Label(root, text=letter[1].upper())
+
+                    label.grid(row=attempts, column=letter[0], padx=15, pady=15)
+
+                    if letter[1] == word_chosen[letter[0]]: #in word, right position
+                        
+                        label.config(bg=GREEN, fg=BLACK)
+
+                    if letter[1] in word_chosen and not letter[1] == word_chosen[letter[0]]: #in word, wrong position
+
+                        label.config(bg=YELLOW, fg=BLACK)
+                    
+                    if letter[1] not in word_chosen: #not in word
+
+                        label.config(bg=BLACK, fg="#e1e8f2")
+
+                
                 messagebox.showinfo("Correct!", f"The word was indeed {word_chosen}")
 
             else:
 
-                for letter in guess:
+                for letter in enumerate(list(guess)):
 
-                    label = Label(root, text=letter.upper())
-                    label.grid(row=attempts, column=guess.index(letter), padx=10, pady=10)
-                
-                    if letter == word_chosen[guess.index(letter)]: #in word, right position
+                    label = Label(root, text=letter[1].upper())
+
+                    label.grid(row=attempts, column=letter[0], padx=15, pady=15)
+
+                    if letter[1] == word_chosen[letter[0]]: #in word, right position
                         
                         label.config(bg=GREEN, fg=BLACK)
 
-                    if letter in word_chosen and not letter == word_chosen[guess.index(letter)]: #in word, wrong position
+                    if letter[1] in word_chosen and not letter[1] == word_chosen[letter[0]]: #in word, wrong position
 
                         label.config(bg=YELLOW, fg=BLACK)
                     
-                    if letter not in word_chosen: #not in word
+                    if letter[1] not in word_chosen: #not in word
 
                         label.config(bg=BLACK, fg="#e1e8f2")
 
@@ -67,22 +93,8 @@ def getGuess():
         messagebox.showerror("Uh Oh!", f"You ran out of attempts! The word was {word_chosen}")
 
 
-wordGuessButton = Button(root, text="ENTER", command=getGuess)
+wordGuessButton = Button(root, text="ENTER", command=lambda:[getGuess, clear_text])
 wordGuessButton.grid(row=999, column=3, columnspan=2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 root.mainloop()
