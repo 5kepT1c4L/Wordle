@@ -61,7 +61,7 @@ def getGuess():
                         label.config(bg=BLACK, fg="#e1e8f2")
 
                 
-                messagebox.showinfo("Correct!", f"The word was indeed {word_chosen}")
+                messagebox.showinfo("Correct!", f"The word was indeed {word_chosen} and it took you f{attempts} attempts to get it :)")
 
             else:
 
@@ -93,7 +93,7 @@ def getGuess():
         messagebox.showerror("Uh Oh!", f"You ran out of attempts! The word was {word_chosen}")
 
 
-wordGuessButton = Button(root, text="ENTER", command=lambda:[getGuess, clear_text])
+wordGuessButton = Button(root, text="ENTER", command=lambda:[getGuess(), clear_text()])
 wordGuessButton.grid(row=999, column=3, columnspan=2)
 
 
