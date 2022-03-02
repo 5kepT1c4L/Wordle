@@ -28,7 +28,7 @@ root.title("Wordle")
 def play_song():
     mixer.init()
     mixer.music.load("Jeopardy_Music.wav")
-    mixer.music.play()
+    mixer.music.play(-1)
 
 def clear_text():
    userWordInput.delete(0, END)
