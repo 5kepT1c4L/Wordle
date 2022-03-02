@@ -61,7 +61,7 @@ def getGuess():
                         label.config(bg=BLACK, fg="#e1e8f2")
 
                 
-                messagebox.showinfo("Correct!", f"The word was indeed {word_chosen} and it took you f{attempts} attempts to get it :)")
+                messagebox.showinfo("Correct!", f"The word was indeed {word_chosen} and it took you {attempts} attempts to get it! :)")
 
             else:
 
