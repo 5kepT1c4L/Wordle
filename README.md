@@ -12,5 +12,6 @@
 
 # Example of a game result
 ![image](https://user-images.githubusercontent.com/70067413/156295800-c9db2c9a-67a3-4d31-a614-9f26b92c977c.png)
-![image](https://user-images.githubusercontent.com/70067413/156295852-2f52a552-13bf-49ad-bba3-79a4b9926f2f.png)
+![image](https://user-images.githubusercontent.com/70067413/156297051-b6d21a76-90a4-42f7-ac1f-33c51635b695.png)
+
 
